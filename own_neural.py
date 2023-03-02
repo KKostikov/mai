@@ -1,10 +1,9 @@
 import numpy
 import scipy.special
-import matplotlib.pyplot as plt
 
 class neuralNetwork:
     # инициализировать нейронную сеть
-    def __init__ (self, inputnodes, hiddennodes, outputnodes, learningrate):
+    def __init__(self, inputnodes, hiddennodes, outputnodes, learningrate):
         # задать количество узлов во входном, скрытом и выходном слое
         self.inodes = inputnodes
         self.hnodes = hiddennodes
@@ -59,7 +58,7 @@ class neuralNetwork:
         hidden_outputs = self.activation_function(hidden_inputs)
 
         # рассчитать входящие сигналы для выходного слоя
-        final_inputs = numpy.dot (self.who, hidden_outputs)
+        final_inputs = numpy.dot(self.who, hidden_outputs)
         # рассчитать исходящие сигналы для выходного слоя
         final_outputs = self.activation_function(final_inputs)
 
@@ -110,7 +109,7 @@ scorecard = []
 # перебрать все записи в тестовом наборе данных
 for record in test_data_list:
     # получить список значений из записи, используя символы
-    # запятой (', ') в качестве разделителей
+    # запятой в качестве разделителей
     all_values = record.split(',')
     # правильный ответ - первое значение
     correct_label = int(all_values[0])
@@ -133,4 +132,4 @@ for record in test_data_list:
 # рассчитать показатель эффективности в виде 
 # доли правильных ответов 
 scorecard_array = numpy.asarray(scorecard) 
-print ("эффективность = ", scorecard_array.sum() / scorecard_array.size) 
+print("эффективность = ", scorecard_array.sum() / scorecard_array.size) 
